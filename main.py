@@ -1,5 +1,4 @@
-from git import Repo
+import subprocess
 
-repo = Repo(r'C:\Users\escal\Projects\Commit Message Generator')
-diff_output = repo.git.diff('--staged')
-print(diff_output)
+diff_msg = subprocess.run(["git", "diff", "--staged" ], capture_output=True, text=True)
+print(diff_msg)
