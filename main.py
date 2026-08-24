@@ -17,6 +17,12 @@ client = genai.Client(api_key=api_key)
 
 response = client.models.generate_content(
     model="gemini-3.7-flash",
-    contents=f"Generate a git commit message based on this git-diff --staged output: \n\n{diff_msg}",
+    contents=f"Generate 1 conventional commit message based on this git-diff --staged output: \n\n{diff_msg}",
 )
+os.system('cls')
 print(response.text)
+
+choice = input("Accept response? (y/n)\n>")
+
+if choice == 'y':
+    subprocess.run(["git", "commit", "-m", response.text], capture_output=True, text=True)
