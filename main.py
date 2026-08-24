@@ -15,8 +15,8 @@ api_key = os.getenv("GEMINI_API_KEY")
 
 client = genai.Client(api_key=api_key)
 
-interaction = client.models.generate_content(
+response = client.models.generate_content(
     model="gemini-3.7-flash",
     contents=f"Generate a git commit message based on this git-diff --staged output: \n\n{diff_msg}",
 )
-print(interaction.output_text)
+print(response.text)
