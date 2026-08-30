@@ -17,7 +17,7 @@ client = genai.Client(api_key=api_key)
 
 response = client.models.generate_content(
     model="gemini-3.7-flash",
-    contents=f"Generate 1 conventional commit message based on this git-diff --staged output: \n\n{diff_msg}",
+    contents=f"Generate 1 conventional commit message based on this git-diff --staged output: \n\n{diff_msg.stdout}",
 )
 os.system('cls')
 print(response.text)
