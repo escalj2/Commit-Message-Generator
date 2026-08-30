@@ -20,9 +20,8 @@ else:
         )
         os.system('cls')
         print(response.text)
-    except errors.ServerError as e:
+    except errors as e:
         print(e.message)
-    #except Exception as e: print(e)
     else:
         choice = input("Accept response? (y/n)\n>")
         if choice == 'y':
